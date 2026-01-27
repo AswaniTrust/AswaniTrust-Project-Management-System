@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 222 47% 18%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Role colors */
+    --role-admin: 0 84% 50%;
+    --role-backend: 262 83% 58%;
+    --role-frontend: 199 89% 48%;
+    --role-mobile: 142 76% 36%;
+    --role-testing: 38 92% 50%;
+    --role-lead: 0 84% 60%;
+    --role-manager: 322 81% 43%;
+
+    /* Status colors */
+    --status-draft: 220 9% 46%;
+    --status-in-progress: 221 83% 53%;
+    --status-ui-completed: 262 83% 58%;
+    --status-dev-completed: 199 89% 48%;
+    --status-testing: 38 92% 50%;
+    --status-testing-failed: 0 84% 60%;
+    --status-review: 322 81% 43%;
+    --status-uat: 142 76% 36%;
+    --status-live: 142 71% 45%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 220 14% 96%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 18%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 222 47% 18%;
+    --muted-foreground: 220 9% 60%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 22%;
+    --input: 222 47% 22%;
+    --ring: 221 83% 53%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-accent: 222 47% 14%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 222 47% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  /* Safe area support for iOS */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
