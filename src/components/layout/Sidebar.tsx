@@ -15,7 +15,7 @@ const menuItems = [
   { id: 'projects', label: 'Projects', icon: FolderKanban, permissionKey: 'projects' },
   { id: 'tasks', label: 'Tasks', icon: ListTodo, permissionKey: 'tasks' },
   { id: 'timesheets', label: 'Timesheets', icon: Clock, permissionKey: 'timesheets' },
-  { id: 'team', label: 'Team Members', icon: Users, permissionKey: 'team' },
+  { id: 'team', label: 'Team Members', icon: Users, permissionKey: 'team_members' },
   { id: 'settings', label: 'Settings', icon: Settings, permissionKey: 'settings' },
 ];
 
@@ -32,9 +32,10 @@ const roleLabels: Record<string, string> = {
 export function Sidebar({ activeMenu, onMenuChange }: SidebarProps) {
   const { profile, role, hasPermission, signOut, isAdmin } = useAuth();
 
-  // Filter menu items based on user permissions
+  // Filter menu items based on user permissions (dashboard has no DB permission — show to all)
   const visibleMenuItems = menuItems.filter(item => {
     if (isAdmin) return true;
+    if (item.permissionKey === 'dashboard') return true;
     return hasPermission(item.permissionKey, 'view');
   });
 
